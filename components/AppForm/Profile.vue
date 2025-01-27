@@ -6,9 +6,7 @@
     <div class="shadow sm:overflow-hidden sm:rounded-md">
       <div class="space-y-6 bg-white px-4 py-5 sm:p-6">
         <div class="col-span-6 sm:col-span-3">
-          <label for="name" class="block text-sm font-medium text-gray-700"
-            >Name</label
-          >
+          <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
           <input
             type="text"
             name="name"
@@ -17,12 +15,11 @@
             :value="name"
             @input="$emit('update:name', $event.target.value)"
             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            required
           />
         </div>
         <div>
-          <label for="about" class="block text-sm font-medium text-gray-700"
-            >About yourself</label
-          >
+          <label for="about" class="block text-sm font-medium text-gray-700">About yourself</label>
           <div class="mt-1">
             <textarea
               id="about"
@@ -33,14 +30,12 @@
               maxlength="100"
               :value="desc"
               @input="$emit('update:desc', $event.target.value)"
+              required
             ></textarea>
           </div>
         </div>
-
         <div class="flex-grow col-span-6 sm:col-span-3">
-          <label for="photo-url" class="block text-sm font-medium text-gray-700"
-            >Photo Url</label
-          >
+          <label for="photo-url" class="block text-sm font-medium text-gray-700">Photo Url</label>
           <input
             type="text"
             name="photo-url"
@@ -48,12 +43,26 @@
             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
             :value="image"
             @input="$emit('update:image', $event.target.value)"
+            required
           />
+        </div>
+        <div class="flex justify-end">
+          <button
+            type="submit"
+            class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            Save
+          </button>
         </div>
       </div>
     </div>
   </base-form-section>
 </template>
+
 <script setup>
 const props = defineProps(["name", "desc", "image"]);
 </script>
+
+<style scoped>
+/* Add any additional styles here */
+</style>
